@@ -1,5 +1,4 @@
-
-
+import { register } from './JS/functions.js';
 
 class PageOne extends HTMLElement {
     connectedCallback() {
@@ -9,29 +8,35 @@ class PageOne extends HTMLElement {
             <ion-title>Page One</ion-title>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">
-          <h1>Ionic PWA</h1>
+        <ion-content class="ion-padding" color="light">
+          <h1>List Records</h1>
 
             <ion-list>
+                <ion-list-header>
+                    <ion-label>Records</ion-label>
+                </ion-list-header>
                 <ion-item>
-                    <ion-input label="Default label" placeholder="Enter text"></ion-input>
+                    <ion-label>Pokémon Yellow</ion-label>
                 </ion-item>
-
                 <ion-item>
-                    <ion-input label="Fixed label" label-placement="fixed" placeholder="Enter text"></ion-input>
+                    <ion-label>Mega Man X</ion-label>
                 </ion-item>
-
                 <ion-item>
-                    <ion-input label="Stacked label" label-placement="stacked" placeholder="Enter text"></ion-input>
+                    <ion-label>The Legend of Zelda</ion-label>
                 </ion-item>
-
                 <ion-item>
-                    <ion-input label="Floating label" label-placement="floating" placeholder="Enter text"></ion-input>
+                    <ion-label>Pac-Man</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Super Mario World</ion-label>
                 </ion-item>
             </ion-list>
 
           <ion-nav-link router-direction="forward" component="page-two">
-            <ion-button>Go to Page Two</ion-button>
+            <ion-button>Add New</ion-button>
+          </ion-nav-link>
+          <ion-nav-link router-direction="forward" component="page-three">
+            <ion-button>Previus Records</ion-button>
           </ion-nav-link>
         </ion-content>
       `;
@@ -46,14 +51,38 @@ class PageTwo extends HTMLElement {
             <ion-buttons slot="start">
               <ion-back-button></ion-back-button>
             </ion-buttons>
-            <ion-title>Page Two</ion-title>
+            <ion-title >Add Record</ion-title>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">
-          <h1>Page Two</h1>
+        <ion-content class="ion-padding" color="light">
+            <h1>Add</h1>
+            <ion-list>
+                <ion-item>
+                    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+                    <ion-modal>
+                        <ion-datetime id="datetime"></ion-datetime>
+                    </ion-modal>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input label="Exercise" label-placement="fixed" placeholder="Enter Exercise"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input label="Sets" label-placement="fixed" placeholder="Enter Sets"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input label="Weight" label-placement="fixed" placeholder="Enter Weight"></ion-input>
+                </ion-item>
+            </ion-list>
+
           <div>
-            <ion-nav-link router-direction="forward" component="page-three">
-              <ion-button>Go to Page Three</ion-button>
+            <ion-nav-link router-direction="forward" component="page-one">
+              <ion-button>Go List</ion-button>
+            </ion-nav-link>
+            <ion-nav-link router-direction="forward" component="page-one">
+              <ion-button>Add Exercise</ion-button>
             </ion-nav-link>
           </div>
         </ion-content>
@@ -72,7 +101,7 @@ class PageTwo extends HTMLElement {
             <ion-title>Page Three</ion-title>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">
+        <ion-content class="ion-padding" color="light">
           <h1>Page Three</h1>
         </ion-content>
       `;
@@ -82,3 +111,9 @@ class PageTwo extends HTMLElement {
 customElements.define('page-one', PageOne);
 customElements.define('page-two', PageTwo);
 customElements.define('page-three', PageThree);
+
+register();
+
+
+
+
